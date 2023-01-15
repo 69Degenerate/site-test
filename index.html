@@ -1,151 +1,308 @@
-<!-- 
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>Web App – Simple Interest Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-
-        <div class="maindiv">
-
-            <h1>Simple Interest Calculator</h1><br>
-
-            <div class="center">
-            Amount &emsp;&emsp;&nbsp;&nbsp;<input type="number"  id="principal" min="1"> <br><br>
-            
-            Interest Rate &nbsp;<input type="range"  id="rate" min="1" max="20" step="0.25" value="10.25">
-            <span id="rate_val"> </span>%
-            
-            <br>
-            <br>
-            No. of Years &nbsp;&nbsp;<select id="years">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
-            <br/>
-            <br>
-            
-            <button onclick="compute()">Compute Interest</button><br><br>
-            <span id="result">
-                
-            </span>
-            </div>
-            
-            <footer>
-                &#169; Everyone Can Get Rich
-            </footer>
-            <script src="script.js"></script>
-        </div>
-    
-    </body>
-    
-</html> -->
-
-
-
-<!DOCTYPE html>
 
 <head>
-    <title>simple calculator</title>
-    <style>
-        body {
-            background-color: darkblue;
-        }
-        
-        .f {
-            background-color: grey;
-            border: solid;
-            width: 270px;
-            height: 327px;
-            margin: auto;
-            border-radius: 10px;
-        }
-        
-        input[type=button] {
-            width: 40px;
-            border: solid;
-            height: 40px;
-            margin: 5px;
-            font-size: medium;
-        }
-        
-        input[type=text] {
-            width: 195px;
-            height: 28px;
-            font-size: large;
-            border: solid;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
-        
-        #fin {
-            width: 192px;
-            margin: 5px;
-        }
-        
-        input[type=reset] {
-            border: solid;
-            width: 128px;
-            height: 31px;
-            font-size: 18px;
-            border-bottom-left-radius: 8px;
-        }
-        
-        #del {
-            border: solid;
-            width: 65px;
-            height: 31px;
-            font-size: 18px;
-            border-bottom-right-radius: 8px;
-        }
-    </style>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>Hello, world!</title>
 </head>
 
-<body>
-    <div class="f">
-        <form name="fm" align="center">
-            <br>
-            <input type="text" name="a" id="tex"><br><br>
-            <input type="button" value="1" onclick="fm.a.value+='1'">
-            <input type="button" value="2" onclick="fm.a.value+='2'">
-            <input type="button" value="3" onclick="fm.a.value+='3'">
-            <input type="button" value="+" onclick="fm.a.value+='+'"><br>
-            <input type="button" value="4" onclick="fm.a.value+='4'">
-            <input type="button" value="5" onclick="fm.a.value+='5'">
-            <input type="button" value="6" onclick="fm.a.value+='6'">
-            <input type="button" value="-" onclick="fm.a.value+='-'"><br>
-            <input type="button" value="7" onclick="fm.a.value+='7'">
-            <input type="button" value="8" onclick="fm.a.value+='8'">
-            <input type="button" value="9" onclick="fm.a.value+='9'">
-            <input type="button" value="*" onclick="fm.a.value+='*'"><br>
-            <input type="button" value="." onclick="fm.a.value+='.'">
-            <input type="button" value="0" onclick="fm.a.value+='0'">
-            <input type="button" value="/" onclick="fm.a.value+='/'">
-            <input type="button" value="=" onclick="fm.a.value=eval(fm.a.value)"><br>
-            <span id="fin">&nbsp;
-                <input type="reset" value="clear all" onclick="fm.a.value+=''">
-                <input type="button" value="del" id="del" onclick="fm.a.value=dele()">
-            </span>
-            <script>
-                function dele() {
-                    var v = document.getElementById("tex").value;
-                    var ans = v.slice(0, -1);
-                    return ans;
-
-                }
-            </script>
-
-
-        </form>
+<body style="background-color: rgb(15, 15, 15)">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#" onclick="fread()">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Gerne
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" onclick="gerne('action')" value="action" href="#">Action</a>
+            <a class="dropdown-item" onclick="gerne('thriller')" value="thriller" href="#">Thriller</a>
+            <a class="dropdown-item" onclick="gerne('mystery')" value="mystery" href="#">Mystery</a>
+            <a class="dropdown-item" onclick="gerne('adventure')" value="adventure" href="#">Thriller</a>
+            <a class="dropdown-item" onclick="gerne('sci-fi')" value="sci-fi" href="#">sci-fi</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Year
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" onclick="year('2012')" href="#">2012</a>
+              <a class="dropdown-item" onclick="year('2013')" href="#">2013</a>
+              <a class="dropdown-item" onclick="year('2014')" href="#">2014</a>
+              <a class="dropdown-item" onclick="year('2015')" href="#">2015</a>
+              <a class="dropdown-item" onclick="year('2016')" href="#">2016</a>
+              <a class="dropdown-item" onclick="year('2017')" href="#">2017</a>
+          </div>
+        </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+        <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button id="sear" class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="find()" href="#">Search</button>
+      </div>
     </div>
+  </nav>
+  <div class="container my-4">
+    <div id="cont" class="row">
+    </div>
+  </div>
+  <script>
+    const csrftoken = getCookie('csrftoken');
+    fread();
+    async function fread() {
+      let f = await fetch('http://sitesforvishal.pythonanywhere.com/apiread');
+      let data = await f.json();
+      document.getElementById('cont').innerHTML =``;
+      for (let i = 0; i < data.length; i++) {
+        const element = data[i].name;
+        const img = data[i].image;
+        const no = data[i].id;
+        document.getElementById('cont').innerHTML += `
+        <div class="col-md-4">
+          <a href="#" onclick="down(`+no+`)">
+            <div class="card bg-dark text-white mb-4 shadow-sm">
+              <img id="name`+ i + `" src="` + img + `" class="d-block w-100" alt="...">
+              <div class="card-body">
+                        <p id="myImg`+ i + `" class="card-text">` + element + `</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              `;
+              console.log(element);
+              console.log(img);
+              console.log(i);
+            }
+          }
+     
+    async function find()
+          {
+            document.getElementById('cont').innerHTML =``;
+            var search=document.getElementById("search").value;
+            if (!search) {
+              search="''";  
+              document.getElementById('cont').innerHTML =`<h3>no results</h3>`;
+            }
+            console.log(search);
+            let f=await fetch('http://sitesforvishal.pythonanywhere.com/apisearch/'+search);
+            let data=await f.json();
+            for (let i = 0; i < data.length; i++)
+            {
+              const element = data[i].name;
+              const img = data[i].image;
+              const no = data[i].id;
+              console.log(element);
+              console.log(img);
+              console.log(i);
+              document.getElementById('cont').innerHTML += `
+              <div class="col-md-4">
+                <a href="http://sitesforvishal.pythonanywhere.com/download/`+ no + `">
+                  <div class="card bg-dark text-white mb-4 shadow-sm">
+                    <img id="name`+ i + `" src="` + img + `" class="d-block w-100" alt="...">
+                    <div class="card-body">
+                              <p id="myImg`+ i + `" class="card-text">` + element + `</p>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+              `;
+            }
+          }
+          
+    function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        
+    async function down(search)
+          {
+            document.getElementById('cont').innerHTML =``;
+            let f=await fetch('http://sitesforvishal.pythonanywhere.com/apireadone/'+search);
+            let data=await f.json();
+            if (data.length === 0)
+            { 
+              document.getElementById('cont').innerHTML =`<h3>no results</h3>`;
+            }
+            for (let i = 0; i < data.length; i++)
+            {
+              const element = data[i].name;
+              const img = data[i].image;
+              const no = data[i].id;
+              document.getElementById('cont').innerHTML += `
+                <div class="container text-white">
+                  <center>
+                      <br>
+                      <h3><b>`+data[i].name+`</b></h3>
+                      <img src="`+data[i].image+`" alt="" class="d-block w-50" >
+                      <p><b>name: </b>`+data[i].name+`</p>
+                      <p><b>release year:</b>`+data[i].release_year+`</p>
+                      <p><b>gerne: </b>`+data[i].gerne+`</p>
+                      <p><b>imdb: </b>`+data[i].imdb+`</p>
+                      <p><b>rotten tometos: </b>`+data[i].rt+`</p>
+                      
+                      <div class="container" style=" width: 50%;">
+                          <p><b>cast:</b><br>`+data[i].cast+`</p>
+                          <p><b>info:</b><br>`+data[i].desc+`</p>
+                          <br>   
+                          <h3><b>Download</b></h3>
+                          <h4>`+data[i].name+` [`+data[i].size480p+`]</h4>
+                          <a href="`+data[i].link480p+`" class="btn btn-outline-success btn-lg my-2 my-sm-0" role="button" aria-pressed="true">480p</a>
+                          <br><br>
+                          <h4>`+data[i].name+` [`+data[i].size720p+`]</h4>
+                          <a href="`+data[i].link720p+`" class="btn btn-outline-success btn-lg my-2 my-sm-0" role="button" aria-pressed="true">720p</a>
+                          <br><br>
+                          <h4>`+data[i].name+` [`+data[i].size1080p+`]</h4>
+                          <a href="`+data[i].link1080p+`" class="btn btn-outline-success btn-lg my-2 my-sm-0" role="button" aria-pressed="true">1080p</a>
+                          <br>
+                      </div>  
+                  </center>
+                  <br><br>
+                  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                  <footer><div class="container">
+                    <div class="container mb-3 py-4">
+                        <h2 class="text">Leave a Reply</h2>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                            <textarea class="form-control bg-dark text-white" id="desc" name="desc" rows="3" placeholder="Enter Comment"></textarea>
+                          </div>
+                          <div class="row">
+                              <div class="col form-group">
+                                  <label for="name">Name</label>
+                                  <input  type="text" class="form-control bg-dark text-white" id="name" name="name" placeholder="Enter your Name">
+                              </div>
+                      
+                              <div class="col form-group">
+                                  <label for="email">Email address</label>
+                                  <input type="email" class="form-control bg-dark text-white" id="email" name="email" placeholder="Enter Your Email">
+                              </div>
+                          </div>
+                            <button class="btn btn-primary" onclick="fom(`+data[i].id+`)">Submit</button>
+                    
+                    </div>
+                </div>
+                </footer>
+              </div>
+              `;
+            }
+          }
+
+    function fom(search){
+        var d=document.getElementById("desc").value;
+        var n=document.getElementById("name").value;
+        var e=document.getElementById("email").value;
+        console.log(d);
+        console.log(n);
+        console.log(e);
+        fetch('http://sitesforvishal.pythonanywhere.com/create', {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrftoken
+          },
+          body: JSON.stringify({
+            "name": n,
+            "email": e,
+            "decs": d
+            })
+          })
+          .then(response => response.json())
+          .then(response => alert("response have been submited")).then(down(search))
+        }
+        
+    async function year(search)
+          {
+            document.getElementById('cont').innerHTML =``;
+            let f=await fetch('http://sitesforvishal.pythonanywhere.com/searchyear/'+search);
+            let data=await f.json();
+            if (data.length === 0)
+            { 
+              document.getElementById('cont').innerHTML =`<h3>no results</h3>`;
+            }
+            for (let i = 0; i < data.length; i++)
+            {
+              const element = data[i].name;
+              const img = data[i].image;
+              const no = data[i].id;
+              document.getElementById('cont').innerHTML += `
+              <div class="col-md-4">
+                <a href="#" onclick="down(`+no+`)">
+                      <div class="card bg-dark text-white mb-4 shadow-sm">
+                          <img id="name`+ i + `" src="` + img + `" class="d-block w-100" alt="...">
+                          <div class="card-body">
+                              <p id="myImg`+ i + `" class="card-text">` + element + `</p>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              `;
+            }
+          }
+
+    async function gerne(search)
+          {
+            document.getElementById('cont').innerHTML =``;
+            console.log(search);
+            let f=await fetch('http://sitesforvishal.pythonanywhere.com/searchgerne/'+search);
+            let data=await f.json();
+            if (data.length === 0)
+            { 
+              document.getElementById('cont').innerHTML =`<h3>no results</h3>`;
+            }
+            for (let i = 0; i < data.length; i++)
+            {
+              const element = data[i].name;
+              const img = data[i].image;
+              const no = data[i].id;
+              console.log(element);
+              console.log(img);
+              console.log(i);
+              document.getElementById('cont').innerHTML += `
+              <div class="col-md-4">
+                <a href="#" onclick="down(`+no+`)">
+                      <div class="card bg-dark text-white mb-4 shadow-sm">
+                          <img id="name`+ i + `" src="` + img + `" class="d-block w-100" alt="...">
+                          <div class="card-body">
+                              <p id="myImg`+ i + `" class="card-text">` + element + `</p>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              `;
+            }
+          }
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
 </body>
+
+</html>
